@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--prints whole list at once-->
+   <div th:text="${list}">
+
+   </div>
+
+
+<!--print one by one-->
+<ul>
+<!--    jitni iterations hogi utni baar naya <li> apne aap ban jaaega-->
+    <li th:each="n:${list}">
+        <span th:text="${n}"></span>
+    </li>
+</ul>
+
+<!--
+  we can use status to find these-:
+    index=current index starting with 0
+    count=no. of elements processed so far
+    even/odd=checks if the current iteration index is even or odd
+    size=size of list
+    first=checks if the current iteration index is first one
+    last=checks if the current iteration index is last one
+-->
+
+<ul>
+    <!--    jitni iterations hogi utni baar naya <li> apne aap ban jaaega-->
+    <li th:each="n,status:${list}">
+        <span th:text="${status.index}+''+${n}"></span>
+    </li>
+</ul>
+
+<!--apan iska ese use kr skte jaise leetcode mai questions ki table hoti hai toh usme rows alternative color ki hoti
+hai toh agar row odd hai toh kuch kro and even pr kuch aur-->
+
+<ul>
+    <!--    ye yaha ternary operator lagaya hai -->
+    <li th:each="n,status:${list}">
+        <span th:style="${status.odd} ? 'color:red;font-weight:bold;' : 'color:yellow;font-weight:bold;'" th:text="${status.index}+''+${n}"></span>
+    </li>
+</ul>
+
+
+</body>
+</html>

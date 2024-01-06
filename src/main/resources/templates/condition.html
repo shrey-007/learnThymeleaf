@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+   <h1>Conditions</h1>
+<!--there are three ways to check conditions elvis,is-unless,switch-case-->
+
+<!--elvis operator-->
+
+<!--model attribute mai active mai true/false aaega agar true hoga toh active print hoga else not active print hoga
+similarly ye cheej apan th:style ke saath bhi kr skte hai css daalne ke liye according to some condition-->
+<h1>User is <span th:text="${active} ? 'ACTIVE' : 'NOT ACTIVE'"  th:style="${active} ? 'color:green' : 'color:red'"></span></h1>
+
+
+
+<!--if and unless-->
+<!--model attribute se gender mai M/F aaya agr M aaya toh male display hoga else female display hoga-->
+<h1 th:if="${gender}=='M'">Male</h1>
+<h1 th:if="${gender}=='F'">Female</h1>
+
+<!--switch case-->
+<div th:switch="${#lists.size(mylist)}">
+    <h1 th:case="'0'">List contains zero elements</h1>
+    <h1 th:case="'1'">List contains one elements</h1>
+    <h1 th:case="*">List contains more than one elements</h1>
+
+</div>
+
+
+</body>
+</html>

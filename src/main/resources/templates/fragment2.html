@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!--to include footer in your page you need to first make footer a fragment then include it in your page-->
+<!--page name ::fragment name-->
+<footer th:replace="footer2::footer2(${title})">
+
+</footer>
+
+</body>
+</html>
