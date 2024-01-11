@@ -63,5 +63,12 @@ public class MyController {
         return "fragment2";
     }
 
+    @GetMapping("/template")
+    public String template(){
+        return "profile";
+    }
+
+
+
 
 }
